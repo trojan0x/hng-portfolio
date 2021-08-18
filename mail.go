@@ -10,6 +10,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/joho/godotenv"
 	"github.com/mailjet/mailjet-apiv3-go/v3"
 )
 
@@ -90,10 +91,14 @@ func main() {
 	http.Handle("/", home)
 	http.HandleFunc("/sendmail", SendMailHandler)
 
-	fmt.Printf("Server started at port 3000")
-	err := http.ListenAndServe(":3000", nil)
+	fmt.Printf("Server started at port 8080")
+	err := http.ListenAndServe(":8080", nil)
 	if err == nil {
 		log.Fatal(err)
+	}
+	env := godotenv.Load(".env")
+	if env != nil {
+		log.Fatalf("Error loading .env file")
 	}
 
 }
