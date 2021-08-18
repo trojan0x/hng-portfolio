@@ -1,1 +1,1 @@
-web: bin/mail.go
+web: bin/mail.exe

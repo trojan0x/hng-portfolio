@@ -93,17 +93,11 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "9000" // Default port if not specified
+		port = "9000"
 	}
 	err := http.ListenAndServe(":"+port, nil)
 	if err == nil {
 		log.Fatal("err")
 	}
-
-	/*fmt.Printf("Server started at port 8080")
-	err := http.ListenAndServe(":8080", nil)
-	if err == nil {
-		log.Fatal(err)
-	}*/
 
 }
